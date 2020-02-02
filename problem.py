@@ -43,8 +43,8 @@ def _read_data(f_name):
     return (os.path.join('data', "images"), X), Y_encode
 
 def get_test_data(path):
-    return _read_data("train")
+    return _read_data("test")
 
 
 def get_train_data(path):
-    return _read_data("test")
+    return _read_data("train")
