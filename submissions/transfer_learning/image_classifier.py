@@ -7,6 +7,9 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.layers import Dropout, BatchNormalization
 from tensorflow.keras import optimizers
 from tensorflow.keras import applications
+from tensorflow.keras.utils import to_categorical
+import warnings
+warnings.filterwarnings("ignore")
 
 class ImageClassifier(object):
 
@@ -23,13 +26,16 @@ class ImageClassifier(object):
         x_resize = cv2.resize(x, (128,128))
         return x_resize
 
-    def fit(self, X_train, y_train):
+    def fit(self, img_loader):
         """Fits the model"""
-        n = len(X_train)
-        X = np.zeros((n, 128, 128, 3))
-        Y = y_train.copy()
-        for i in range(n):
-            X[i] = self._transform(X_train[i])
+        nb = len(img_loader)
+        X = np.zeros((nb, 128, 128, 3))
+        Y = np.zeros((nb,2))
+        
+        for i in range(nb):
+            x, y = img_loader.load(i)
+            X[i] = self._transform(x)
+            Y[i, y] = 1
             
         self.model.fit(x=X, y=Y, batch_size=self.batch_size, epochs=self.epochs, verbose=1)
 
@@ -54,10 +60,10 @@ class ImageClassifier(object):
         x = Dropout(0.4)(x)  
         x = Dense(10, activation='elu')(x)
         x = Dropout(0.1)(x)
-        predictions = Dense(1, activation='sigmoid', name='predictions')(x)
+        predictions = Dense(2, activation = 'softmax', name='predictions')(x)
 
         model = Model(inputs=base_model.input, outputs=predictions)
 
-        model.compile(loss='binary_crossentropy', optimizer=optimizers.Adam(lr=1e-3), metrics=['accuracy'])
+        model.compile(loss='categorical_crossentropy', optimizer=optimizers.Adam(lr=1e-3), metrics=['accuracy'])
         
         return model

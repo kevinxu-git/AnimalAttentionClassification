@@ -7,6 +7,8 @@ from tensorflow.keras.layers import Conv2D, MaxPooling2D
 from tensorflow.keras.layers import Dropout, BatchNormalization
 from tensorflow.keras import optimizers
 from tensorflow.keras import applications
+import warnings
+warnings.filterwarnings("ignore")
 
 
 class ImageClassifier(object):
