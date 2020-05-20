@@ -1,4 +1,4 @@
-# Animal Attention Classification
+# Animal Attention Classification - February 2020
 
 #### Authors : Pierre ADEIKALAM - Guangyue CHEN - Jiabin CHEN - Chuanyuan QIAN - Qin WANG - Kevin XU
 
