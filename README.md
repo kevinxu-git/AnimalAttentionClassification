@@ -1,4 +1,4 @@
-# Animal Attention Classification - February 2020
+# Animal Attention Classification challenge
 > January-February 2020 : Master 2 Data Science at Ecole Polytechnique in France
 
 Creation of data challenge during the Data Camp course provided by [Alexandre Gramfort](http://alexandre.gramfort.net)
