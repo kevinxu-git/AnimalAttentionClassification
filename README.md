@@ -1,7 +1,7 @@
 # Animal Attention Classification - February 2020
 > January-February 2020 : Master 2 Data Science at Ecole Polytechnique in France
 
-Create of data challenge during the Data Camp course provided by [Alexandre Gramfort](http://alexandre.gramfort.net)
+Creation of data challenge during the Data Camp course provided by [Alexandre Gramfort](http://alexandre.gramfort.net)
 
 #### Authors : Pierre ADEIKALAM - Guangyue CHEN - Jiabin CHEN - Chuanyuan QIAN - Qin WANG - Kevin XU
 
